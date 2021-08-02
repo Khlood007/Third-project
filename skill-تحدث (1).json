@@ -1,0 +1,340 @@
+{
+  "intents": [
+    {
+      "intent": "الإمكانية",
+      "examples": [
+        {
+          "text": "كيف أتحكم بالذراع؟"
+        },
+        {
+          "text": "كيف أتحكم بالذراع الآالي؟"
+        },
+        {
+          "text": "كيف يمكنني التحكم بالذراع؟"
+        },
+        {
+          "text": "كيف يمكنني التحكم بالذراع الآلي؟"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "الاتجاه",
+      "examples": [
+        {
+          "text": "هل يمكن للذراع الحركة في جميع الاتجاهات؟"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "الفكرة",
+      "examples": [
+        {
+          "text": "ايش الفكرة من الصفحة؟"
+        },
+        {
+          "text": "في ايش نستعمل هذي الصفحة ؟"
+        },
+        {
+          "text": "في ماذا تستعمل هذه الصفحة؟"
+        },
+        {
+          "text": "ما الغرض من هذه الصفحة؟"
+        },
+        {
+          "text": "ما الفائدة من هذه الصفحة ؟"
+        },
+        {
+          "text": "ما فكرة هذه الصفحة؟"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "ترحيب",
+      "examples": [
+        {
+          "text": "أهلا"
+        },
+        {
+          "text": "السلام عليكم"
+        },
+        {
+          "text": "سلام"
+        },
+        {
+          "text": "مرحبا"
+        },
+        {
+          "text": "هاي"
+        },
+        {
+          "text": "هلو"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "زوايا",
+      "examples": [
+        {
+          "text": "ما الزوايا الممكنة للحركة ؟"
+        },
+        {
+          "text": "ما الزوبا التي يمكن التحرك بها؟"
+        },
+        {
+          "text": "ما هي الزوايا التي يمكن للذراع الحركة بها؟"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "شكر",
+      "examples": [
+        {
+          "text": "أشكرك"
+        },
+        {
+          "text": "سعيد لأنك خدمتني"
+        },
+        {
+          "text": "شكرا"
+        },
+        {
+          "text": "شكرًا"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "وداع",
+      "examples": [
+        {
+          "text": "إلى اللقاء"
+        },
+        {
+          "text": "باي"
+        },
+        {
+          "text": "مع السلامة"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "الإتجاه",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": " . يمكن لهذا الذراع الآلي الحركة في اتجاه زوايا معينة فقط "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#الاتجاه",
+      "dialog_node": "node_2_1627861442984",
+      "previous_sibling": "node_9_1627858842609"
+    },
+    {
+      "type": "standard",
+      "title": "ترحيب",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": " ، أهلًا بك \n تفضل كيف يمكنني مساعدتك ؟"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "conditions": "#ترحيب",
+      "dialog_node": "node_4_1627857011036",
+      "previous_sibling": "مرحبا"
+    },
+    {
+      "type": "standard",
+      "title": "الزوايا",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "الزوايا التي يمكن للذراع التحرك بها هي مضاعفات الزاوية 90  ْوهي (90  ْ -180  ْ -270  ْ-360  ْ )"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#زوايا",
+      "dialog_node": "node_4_1627861881379",
+      "previous_sibling": "node_9_1627861561157"
+    },
+    {
+      "type": "standard",
+      "title": "الشكر",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "\n . كان هذا واجبي فقط "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#شكر",
+      "dialog_node": "node_6_1627862064325",
+      "previous_sibling": "node_4_1627861881379"
+    },
+    {
+      "type": "standard",
+      "title": "وداع",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": " . إلى اللقاء سررت بخدمتك "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#وداع",
+      "dialog_node": "node_7_1627862225771",
+      "previous_sibling": "node_6_1627862064325"
+    },
+    {
+      "type": "standard",
+      "title": "الفكرة",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": ".  الغرض من هذه الصفحة التحكم بذراع آلي "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#الفكرة",
+      "dialog_node": "node_9_1627858842609",
+      "previous_sibling": "node_4_1627857011036"
+    },
+    {
+      "type": "standard",
+      "title": "الإمكانية",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": " . يتم التحكم في الذراع باستخدام المحركات الموجودة في الصفحة للتحكم بزوايا الحركة "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#الإمكانية",
+      "dialog_node": "node_9_1627861561157",
+      "previous_sibling": "node_2_1627861442984"
+    },
+    {
+      "type": "standard",
+      "title": "أي شيء آخر",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "لم أفهم، يمكنك محاولة اعادة الصياغة"
+              },
+              {
+                "text": "هل يمكنك اعادة صياغة عبارتك؟ أنا لا فهم"
+              },
+              {
+                "text": "لم أفهم قصدك"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "أي شيء آخر",
+      "previous_sibling": "node_7_1627862225771",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "standard",
+      "title": "مرحبا",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": " أهلًا بك ، أنا هنا لمساعدتك"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "مرحبا"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "disambiguation": {
+      "prompt": ":هل قصدت",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "كل ما سبق خطأ"
+    },
+    "human_agent_assist": {
+      "prompt": ":هل قصدت"
+    }
+  },
+  "learning_opt_out": false,
+  "name": "تحدث",
+  "language": "ar",
+  "description": ""
+}
